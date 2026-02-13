@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're My Valentine! - Valentine's Day</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-9">
+    <div class="falling-hearts" id="fallingHearts">
+        <div class="falling-heart">💖</div>
+        <div class="falling-heart">💕</div>
+        <div class="falling-heart">💗</div>
+        <div class="falling-heart">💝</div>
+        <div class="falling-heart">💓</div>
+        <div class="falling-heart">💞</div>
+    </div>
+
+    <div class="container">
+        <div class="page-content">
+            <div class="decorative-hearts floating">
+                <span class="heart">💖</span>
+                <span class="heart">💕</span>
+                <span class="heart">💗</span>
+                <span class="heart">💝</span>
+                <span class="heart">💓</span>
+                <span class="heart">💞</span>
+            </div>
+
+            <h1 class="script-title celebration">Yay! You're my Valentine 💖</h1>
+            <p class="message-text celebration-message">I love you! 💕</p>
+
+            <div class="bouquet-area">
+                <div class="bouquet-container">
+                    <img src="https://images.unsplash.com/photo-1511974035430-5de47d3b95da?auto=format&fit=crop&w=900&q=80" alt="Bouquet of flowers">
+                </div>
+                <p class="bouquet-message">Hi ky!<br><br>
+                I may not be the man you've always dreamed of, and my efforts might still feel small, but I want you to know I do whatever it takes while I can.</p>
+            </div>
+
+            <p class="happy-message">See you on Valentine's Day 💕</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Continuous falling hearts animation (kept)
+        function createFallingHeart() {
+            const hearts = ['💖', '💕', '💗', '💝', '💓', '💞'];
+            const randomHeart = hearts[Math.floor(Math.random() * hearts.length)];
+            const fallingHeart = document.createElement('div');
+            fallingHeart.className = 'falling-heart';
+            fallingHeart.textContent = randomHeart;
+            fallingHeart.style.left = Math.random() * 100 + '%';
+            fallingHeart.style.animationDuration = (4 + Math.random() * 2) + 's';
+            fallingHeart.style.animationDelay = '0s';
+            
+            document.getElementById('fallingHearts').appendChild(fallingHeart);
+            
+            setTimeout(() => {
+                fallingHeart.remove();
+            }, 7000);
+        }
+
+        // Create new hearts every 300ms
+        setInterval(createFallingHeart, 300);
+
+        // Create initial hearts
+        for (let i = 0; i < 6; i++) {
+            setTimeout(createFallingHeart, i * 200);
+        }
+    </script>
+</body>
+</html>
